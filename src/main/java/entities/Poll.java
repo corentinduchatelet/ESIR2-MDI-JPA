@@ -15,17 +15,18 @@ public class Poll {
 	private String name;
 	
 	private String description;
-	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="poll")
+	@OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE},
+			   mappedBy="poll",
+			   orphanRemoval=true)
 	private List<Slot> time_windows;
 
-	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="poll")
+	@OneToMany(cascade={CascadeType.PERSIST, CascadeType.REMOVE},
+			   mappedBy="poll",
+			   orphanRemoval=true)
 	private List<Participant> participants;
 	
 	public Long getId() {
 		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
 	}
 	public String getName() {
 		return name;
