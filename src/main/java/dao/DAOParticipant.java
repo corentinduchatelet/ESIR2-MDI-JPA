@@ -10,6 +10,15 @@ import entities.Poll;
 import utils.EntityManagerHelper;
 
 public class DAOParticipant {
+	//CREATE
+	public void persist(Participant entity) {
+	        EntityManager manager = EntityManagerHelper.getEntityManager();
+	        EntityManagerHelper.beginTransaction();
+	        manager.persist(entity);
+	        EntityManagerHelper.commit();
+	}
+	
+	//READ
 	public Participant getById(Long id) {
 		EntityManager manager = EntityManagerHelper.getEntityManager();
 		Participant participant = (Participant) manager.find(Participant.class, id);

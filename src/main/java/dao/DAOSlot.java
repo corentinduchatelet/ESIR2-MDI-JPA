@@ -11,6 +11,15 @@ import entities.Slot;
 import utils.EntityManagerHelper;
 
 public class DAOSlot {
+	//CREATE
+	//CREATE
+		public void persist(Slot entity) {
+	        EntityManager manager = EntityManagerHelper.getEntityManager();
+	        EntityManagerHelper.beginTransaction();
+	        manager.persist(entity);
+	        EntityManagerHelper.commit();
+	    }
+	//READ
 	public Slot getById(Long id) {
 		EntityManager manager = EntityManagerHelper.getEntityManager();
 		Slot slot = (Slot) manager.find(Slot.class, id);
