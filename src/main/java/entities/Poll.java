@@ -1,4 +1,4 @@
-package jpa;
+package entities;
 
 import java.util.List;
 
@@ -6,7 +6,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -16,10 +15,10 @@ public class Poll {
 	private String name;
 	
 	private String description;
-	@OneToMany(cascade=CascadeType.PERSIST)
-	private List<TimeWindow> time_windows;
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="poll")
+	private List<Slot> time_windows;
 
-	@ManyToMany
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="poll")
 	private List<Participant> participants;
 	
 	public Long getId() {
@@ -41,10 +40,10 @@ public class Poll {
 		this.description = description;
 	}
 	
-	public List<TimeWindow> getTime_windows() {
+	public List<Slot> getTime_windows() {
 		return time_windows;
 	}
-	public void setTime_windows(List<TimeWindow> time_windows) {
+	public void setTime_windows(List<Slot> time_windows) {
 		this.time_windows = time_windows;
 	}
 	public List<Participant> getParticipants() {

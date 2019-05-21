@@ -1,11 +1,12 @@
-package jpa;
+package entities;
 
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Participant {
@@ -14,8 +15,12 @@ public class Participant {
 	private String name;
 	private String first_name;
 	private String mail;
-	@ManyToMany
-	private List<Poll> polls;
+	@OneToMany
+	private List<Slot> selectedSlots;
+	@ManyToOne
+	private Poll poll;
+	
+	
 	public Long getId() {
 		return id;
 	}
@@ -39,12 +44,6 @@ public class Participant {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
-	}
-	public List<Poll> getPolls() {
-		return polls;
-	}
-	public void setPolls(List<Poll> polls) {
-		this.polls = polls;
 	}
 	
 }

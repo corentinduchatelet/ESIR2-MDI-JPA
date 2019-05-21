@@ -1,11 +1,9 @@
-package jpa;
+package entities;
 
 import java.util.Date;
 
 import javax.persistence.Basic;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -13,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class TimeWindow {
+public class Slot {
 	@Id @GeneratedValue
 	private Long id;
     public Long getId() {
@@ -22,6 +20,9 @@ public class TimeWindow {
 	public void setId(Long id) {
 		this.id = id;
 	}
+	@ManyToOne
+	private Poll poll;
+	
 	@Basic(optional=false)
 	@Temporal(TemporalType.TIMESTAMP)
     private Date begin;
@@ -40,5 +41,11 @@ public class TimeWindow {
 	}
 	public void setEnd(Date end) {
 		this.end = end;
+	}
+	public Poll getPoll() {
+		return poll;
+	}
+	public void setPoll(Poll poll) {
+		this.poll = poll;
 	}
 }
