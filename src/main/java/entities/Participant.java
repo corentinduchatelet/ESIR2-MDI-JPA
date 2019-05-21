@@ -2,6 +2,7 @@ package entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,9 +25,6 @@ public class Participant {
 	public Long getId() {
 		return id;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}
@@ -44,6 +42,18 @@ public class Participant {
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	public List<Slot> getSelectedSlots() {
+		return selectedSlots;
+	}
+	public void setSelectedSlots(List<Slot> selectedSlots) {
+		this.selectedSlots = selectedSlots;
+	}
+	public Poll getPoll() {
+		return poll;
+	}
+	public void setPoll(Poll poll) {
+		this.poll = poll;
 	}
 	
 }

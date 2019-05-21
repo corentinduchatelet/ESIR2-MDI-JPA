@@ -14,12 +14,6 @@ import javax.persistence.TemporalType;
 public class Slot {
 	@Id @GeneratedValue
 	private Long id;
-    public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
 	@ManyToOne
 	private Poll poll;
 	
@@ -30,6 +24,10 @@ public class Slot {
     @Temporal(TemporalType.TIMESTAMP)
     private Date end;
     
+
+    public Long getId() {
+		return id;
+	}
 	public Date getBegin() {
 		return begin;
 	}
