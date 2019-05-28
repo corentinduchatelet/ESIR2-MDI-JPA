@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import dao.DAOParticipant;
 import entities.Participant;
 
-@Path("/doodle/participant")
+@Path("/participants")
 @Produces(MediaType.APPLICATION_JSON)
 public class ParticipantService {
 	private DAOParticipant daoParticipant = new DAOParticipant();

@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import dao.DAOSlot;
 import entities.Slot;
 
-@Path("/doodle/slots")
+@Path("/slots")
 @Produces(MediaType.APPLICATION_JSON)
 public class SlotService {
 	private DAOSlot daoSlot = new DAOSlot();

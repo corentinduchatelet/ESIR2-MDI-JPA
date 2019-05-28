@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import dao.DAOPoll;
 import entities.Poll;
 
-@Path("/doodle/polls")
+@Path("/polls")
 @Produces(MediaType.APPLICATION_JSON)
 public class PollService {
 	private DAOPoll daoPoll = new DAOPoll();
