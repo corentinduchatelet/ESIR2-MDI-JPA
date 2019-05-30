@@ -25,7 +25,7 @@ import EventForm from '@/components/EventForm.vue'
 import SlotForm from '@/components/SlotForm.vue'
 import ParticipantForm from '@/components/ParticipantForm.vue'
 
-const url = 'http://www.localhost:8000'
+const url = 'http://www.localhost:8080/doodle'
 
 export default {
   name: "app",
